@@ -313,5 +313,17 @@
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
+        <script>
+            const clientsTable = document.querySelector("#clientsTable");
+            new simpleDatatables.DataTable(clientsTable, {
+                perPage: 5, // Número de filas por página
+                labels: {
+                    placeholder: "Buscar...",
+                    perPage: "Entradas por página", // Modificar el texto de "entries per page"
+                    noRows: "No se encontraron registros",
+                    info: "Mostrando {start} a {end} de {rows} entradas"
+                }
+            });
+        </script>
     </body>
 </html>
