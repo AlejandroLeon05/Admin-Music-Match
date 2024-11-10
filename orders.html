@@ -104,39 +104,6 @@
             <main>
                 <div class="container-fluid px-4">
                     <h1 class="mt-4">Órdenes de Servicio</h1>
-                    <!-- Formulario de Filtros de Búsqueda -->
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-filter"></i> Filtros de Órdenes de Compra
-                        </div>
-                        <div class="card-body">
-                            <form id="filterForm">
-                                <div class="row mb-3">
-                                    <div class="col-md-4">
-                                        <label for="filterDate" class="form-label">Fecha</label>
-                                        <input type="date" class="form-control" id="filterDate" name="filterDate" />
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="filterStatus" class="form-label">Estado</label>
-                                        <select class="form-control" id="filterStatus" name="filterStatus">
-                                            <option value="">Todos</option>
-                                            <option value="pendiente">Pendiente</option>
-                                            <option value="aprobada">Aprobada</option>
-                                            <option value="cancelada">Cancelada</option>
-                                            <option value="no_autorizada">No Autorizada</option>
-                                            <option value="enviada">Enviada</option>
-                                            <option value="entregada">Entregada</option>
-                                            <option value="devuelta">Devuelta</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-4 align-self-end">
-                                        <button type="button" class="btn btn-primary" onclick="applyFilters()">Aplicar
-                                            Filtros</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-shopping-cart"></i> Listado de Órdenes
@@ -159,91 +126,58 @@
                                         <td>Juan Pérez</td>
                                         <td>Mariachi Vargas</td>
                                         <td>$1500</td>
-                                        <td><span class="badge bg-warning">Pendiente</span></td>
-                                        <td>
-                                            <button class="btn btn-success btn-sm">Aprobar</button>
-                                            <button class="btn btn-danger btn-sm">Cancelar</button>
+                                        <td><span class="badge bg-warning" id="estado-1">Pendiente</span></td>
+                                        <td id="acciones-1">
+                                            <button class="btn btn-success btn-sm"
+                                                onclick="aprobarOrden(1)">Aprobar</button>
+                                            <button class="btn btn-danger btn-sm"
+                                                onclick="cancelarOrden(1)">Cancelar</button>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>2024/11/06</td>
-                                        <td>Ana García</td>
-                                        <td>Los Ángeles Azules</td>
-                                        <td>$2000</td>
-                                        <td><span class="badge bg-warning">Pendiente</span></td>
-                                        <td>
-                                            <button class="btn btn-success btn-sm">Aprobar</button>
-                                            <button class="btn btn-danger btn-sm">Cancelar</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2024/11/07</td>
-                                        <td>Carlos Rodríguez</td>
-                                        <td>Juanes</td>
+                                        <td>2024/10/22</td>
+                                        <td>María López</td>
+                                        <td>Trío Los Panchos</td>
                                         <td>$1200</td>
-                                        <td><span class="badge bg-warning">Pendiente</span></td>
-                                        <td>
-                                            <button class="btn btn-success btn-sm">Aprobar</button>
-                                            <button class="btn btn-danger btn-sm">Cancelar</button>
+                                        <td><span class="badge bg-warning" id="estado-2">Pendiente</span></td>
+                                        <td id="acciones-2">
+                                            <button class="btn btn-success btn-sm"
+                                                onclick="aprobarOrden(2)">Aprobar</button>
+                                            <button class="btn btn-danger btn-sm"
+                                                onclick="cancelarOrden(2)">Cancelar</button>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>2024/11/08</td>
-                                        <td>Laura Martínez</td>
-                                        <td>Zoé</td>
-                                        <td>$1800</td>
-                                        <td><span class="badge bg-warning">Pendiente</span></td>
-                                        <td>
-                                            <button class="btn btn-success btn-sm">Aprobar</button>
-                                            <button class="btn btn-danger btn-sm">Cancelar</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2024/11/09</td>
-                                        <td>Pedro López</td>
-                                        <td>Los Secretos</td>
+                                        <td>2024/09/10</td>
+                                        <td>Carlos Gómez</td>
+                                        <td>Banda MS</td>
                                         <td>$2500</td>
-                                        <td><span class="badge bg-warning">Pendiente</span></td>
-                                        <td>
-                                            <button class="btn btn-success btn-sm">Aprobar</button>
-                                            <button class="btn btn-danger btn-sm">Cancelar</button>
-                                        </td>
+                                        <td><span class="badge bg-success" id="estado-3">Aprobado</span></td>
+                                        <td id="acciones-3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2024/08/15</td>
+                                        <td>Lucía Ramírez</td>
+                                        <td>Orquesta Sinfónica</td>
+                                        <td>$3000</td>
+                                        <td><span class="badge bg-danger" id="estado-4">Cancelado</span></td>
+                                        <td id="acciones-4"></td>
                                     </tr>
                                     <tr>
                                         <td>2024/11/10</td>
-                                        <td>María Fernández</td>
-                                        <td>Maná</td>
-                                        <td>$3000</td>
-                                        <td><span class="badge bg-warning">Pendiente</span></td>
-                                        <td>
-                                            <button class="btn btn-success btn-sm">Aprobar</button>
-                                            <button class="btn btn-danger btn-sm">Cancelar</button>
+                                        <td>José Fernández</td>
+                                        <td>Grupo Norteño</td>
+                                        <td>$900</td>
+                                        <td><span class="badge bg-warning" id="estado-5">Pendiente</span></td>
+                                        <td id="acciones-5">
+                                            <button class="btn btn-success btn-sm"
+                                                onclick="aprobarOrden(5)">Aprobar</button>
+                                            <button class="btn btn-danger btn-sm"
+                                                onclick="cancelarOrden(5)">Cancelar</button>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>2024/11/06</td>
-                                        <td>Ana García</td>
-                                        <td>Los Ángeles Azules</td>
-                                        <td>$2000</td>
-                                        <td><span class="badge bg-success">Aprobada</span></td>
-                                        <td>
-                                            <button class="btn btn-success btn-sm">Aprobar</button>
-                                            <button class="btn btn-danger btn-sm">Cancelar</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2024/11/07</td>
-                                        <td>Carlos Rodríguez</td>
-                                        <td>Juanes</td>
-                                        <td>$1200</td>
-                                        <td><span class="badge bg-danger">Cancelada</span></td>
-                                        <td>
-                                            <button class="btn btn-success btn-sm">Aprobar</button>
-                                            <button class="btn btn-danger btn-sm">Cancelar</button>
-                                        </td>
-                                    </tr>
-                                                                        
                                 </tbody>
+
                             </table>
                         </div>
                     </div>
@@ -273,13 +207,18 @@
         crossorigin="anonymous"></script>
     <script src="js/datatables-simple-demo.js"></script>
     <script>
-        function applyFilters() {
-            const filterDate = document.getElementById("filterDate").value;
-            const filterStatus = document.getElementById("filterStatus").value;
-            console.log("Fecha:", filterDate);
-            console.log("Estado:", filterStatus);
+        function aprobarOrden(id) {
+            document.getElementById(`estado-${id}`).innerText = "Aprobado";
+            document.getElementById(`estado-${id}`).className = "badge bg-success";
+            document.getElementById(`acciones-${id}`).innerHTML = ""; // Oculta los botones
         }
-    </script>    
+
+        function cancelarOrden(id) {
+            document.getElementById(`estado-${id}`).innerText = "Cancelado";
+            document.getElementById(`estado-${id}`).className = "badge bg-danger";
+            document.getElementById(`acciones-${id}`).innerHTML = ""; // Oculta los botones
+        }
+    </script>
 </body>
 
 </html>
