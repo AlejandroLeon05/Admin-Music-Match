@@ -10,6 +10,9 @@
  * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+ .custom-bg {
+  background-color: #4d8fd1; /* Cambia #123456 por el color deseado */
+}
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -78,6 +81,7 @@
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
 }
+
 
 *,
 *::before,
